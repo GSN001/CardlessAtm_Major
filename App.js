@@ -10,7 +10,6 @@ import Landing from "./components/Landing";
 import Register from "./components/Register";
 import WifiTest from "./components/restWifi";
 import ScanScreen from './components/ScanScreen';
-import Face from './components/Face';
 import BiometricPopup from './components/BiometricPopup';
 
 
@@ -21,7 +20,6 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Face">
       <Stack.Screen name="fingerprint" component={BiometricPopup}/>
-      <Stack.Screen name="Face" component={Face}/>
       <Stack.Screen name="qrCode" component={ScanScreen} />
       <Stack.Screen name="wifi" component={WifiTest} />
         <Stack.Screen
