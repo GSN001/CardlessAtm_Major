@@ -1,16 +1,15 @@
 import 'react-native-gesture-handler';
-import React from "react";
+import React from 'react';
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import Landing from "./components/Landing";
-import Register from "./components/Register";
-import WifiTest from "./components/restWifi";
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import Landing from './components/Landing';
+import Register from './components/Register';
+
 import ScanScreen from './components/ScanScreen';
-import BiometricPopup from './components/BiometricPopup';
 
 
 const Stack = createStackNavigator();
@@ -18,36 +17,69 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Face">
-      <Stack.Screen name="fingerprint" component={BiometricPopup}/>
-      <Stack.Screen name="qrCode" component={ScanScreen} />
-      <Stack.Screen name="wifi" component={WifiTest} />
+      <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen
           name="Landing"
           component={Landing}
           options={{
-            title: "Cardless ATM",
+            title: 'Cardless ATM',
             headerStyle: {
-              backgroundColor: "#4ea8de",
+              backgroundColor: '#4ea8de',
             },
-            headerTintColor: "#fff",
+            headerTintColor: '#fff',
             headerTitleStyle: {
-              fontWeight: "bold",
+              fontWeight: 'bold',
             },
           }}
         />
-        <Stack.Screen name="Login" component={Login} options={{
-            title: "Login",
+        <Stack.Screen
+          name="qrCode"
+          component={ScanScreen}
+          options={{
+            title: 'QR Code Scan',
             headerStyle: {
-              backgroundColor: "#4ea8de",
+              backgroundColor: '#4ea8de',
             },
-            headerTintColor: "#fff",
+            headerTintColor: '#fff',
             headerTitleStyle: {
-              fontWeight: "bold",
+              fontWeight: 'bold',
             },
-          }}/>
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            title: 'Login',
+            headerStyle: {
+              backgroundColor: '#4ea8de',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        {/* <Stack.Screen name="fingerprint" component={BiometricPopup} /> */}
+
+        {/* <Stack.Screen name="wifi" component={WifiTest} /> */}
         <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{
+            title: 'Withdrawal',
+            headerStyle: {
+              backgroundColor: '#4ea8de',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerLeft: null,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

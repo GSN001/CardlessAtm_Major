@@ -20,8 +20,10 @@ const Landing = ({navigation}) => {
       }
       >
         <View style={{flex:1, justifyContent:"flex-end"}}>
-        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate("Login")}>
-            <Text style={styles.textStyle}>Login</Text>
+        <Text style={styles.textStyle1}>Already registered? Continue to QR Code scan</Text>
+        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate("qrCode")}>
+         
+            <Text style={styles.textStyle}>Continue</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate("Register")}>
             <Text style={styles.textStyle}>Register</Text>
@@ -59,6 +61,12 @@ const styles = StyleSheet.create({
       textStyle:{
           fontSize:28,
           fontWeight: "bold"
-      }
+      },
+      textStyle1:{
+        fontSize:18,
+        fontWeight: "bold",
+        color:"#AAAFB4",
+        alignSelf:"center"
+    }
     
 });

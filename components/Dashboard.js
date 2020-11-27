@@ -26,9 +26,10 @@ const Dashboard = () => {
             <Text style={styles.loginlable}>Enter Your 16 digit card no.</Text>
             <TextInput
               style={styles.inputField}
+              keyboardType='number-pad'
               onChangeText={(text) => onChangeCardNo(text)}
               value={cardNo}
-              placeholder="  Card Number"
+              placeholder=" Card Number"
             />
             <TouchableOpacity style={{ marginBottom: 30 }}>
               <Button
@@ -54,7 +55,9 @@ const Dashboard = () => {
               style={styles.inputField}
               onChangeText={(text) => onChangepin(text)}
               value={pin}
-              placeholder="  Enter Pin"
+              keyboardType='number-pad'
+              secureTextEntry
+              placeholder=" Enter Pin"
             />
             <TouchableOpacity style={{ marginBottom: 30 }}>
               <Button
@@ -80,12 +83,21 @@ const Dashboard = () => {
               style={styles.inputField}
               onChangeText={(text) => onChangeamount(text)}
               value={amount}
-              placeholder="  Enter Amount"
+              keyboardType='number-pad'
+              placeholder=" Enter Amount"
             />
             <TouchableOpacity style={{ marginBottom: 30 }}>
               <Button
                 title="Next"
-                onPress={() => onChangeprocess(process + 1)}
+                onPress={() => {
+                  if(amount%100 !== 0){
+                    alert("Amount can only be in multiples of 100")
+                  }else{
+                    onChangeprocess(process + 1)}
+
+                  }
+
+                }
               />
             </TouchableOpacity>
           </View>

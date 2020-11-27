@@ -4,7 +4,6 @@ import wifi from 'react-native-android-wifi';
 import {StyleSheet, Text, TouchableOpacity, Linking} from 'react-native';
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import {RNCamera} from 'react-native-camera';
 
 export default function ScanScreen({navigation}) {
   const onSuccess = (e) => {
@@ -22,16 +21,14 @@ export default function ScanScreen({navigation}) {
   return (
     <QRCodeScanner
       onRead={onSuccess}
-      // flashMode={RNCamera.Constants.FlashMode.torch}
       topContent={
         <Text style={styles.centerText}>
-          Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text>{' '}
-          on your computer and scan the QR code.
+           <Text style={styles.textBold}>Scan the QR_code </Text>
         </Text>
       }
       bottomContent={
         <TouchableOpacity style={styles.buttonTouchable}>
-          <Text style={styles.buttonText}>OK. Got it!</Text>
+          <Text style={styles.buttonText}>Wait for the feedback</Text>
         </TouchableOpacity>
       }
     />
